@@ -19,4 +19,10 @@ return array(
         'action' => 'edit',
         'id' => 1
     ),
+
+    '/admin/keyword/:action' => array(
+        'module' => 'EvaSundries',
+        'controller' => 'Admin\Keyword',
+        'action' => 1
+    )
 );

@@ -18,6 +18,12 @@
                 Operations Audit
             </a>
         </li>
+        <li class="tobe-highlight" data-highlight-url="/admin/keyword">
+            <a href="/admin/keyword/index">
+                <i class="icon-double-angle-right"></i>
+                Keyword Count
+            </a>
+        </li>
 
     </ul>
 </li>
