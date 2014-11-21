@@ -63,7 +63,8 @@ class KeywordController extends AdminControllerBase
             $pager = $postSearcher->searchPosts(
                 array(
                     'q' => $keyword,
-                    'status'=>'published'
+                    'status' => 'published',
+                    'increase' => false             //搜索关键词统计
                 )
             );
 
