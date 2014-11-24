@@ -9,7 +9,7 @@ use Eva\EvaSundries\Forms;
 // +----------------------------------------------------------------------
 // | [phalcon]
 // +----------------------------------------------------------------------
-// | Author: Mr.5 <haohong725@wallstreetcn.com>
+// | Author: Haohong<haohong725@wallstreetcn.com>
 // +----------------------------------------------------------------------
 // + Datetime: 14-11-19 10:40
 // +----------------------------------------------------------------------
@@ -17,9 +17,16 @@ use Eva\EvaSundries\Forms;
 // +----------------------------------------------------------------------
 
 
-
+/**
+ * @resourceName("Keyword Managment")
+ * @resourceDescription("Search Keyword Count Managment")
+ */
 class KeywordController extends AdminControllerBase
 {
+    /**
+     * @operationName("List search keywords")
+     * @operationDescription("list search keywords")
+     */
     public function indexAction()
     {
         $limit = $this->request->getQuery('limit', 'int', 10);
@@ -50,17 +57,17 @@ class KeywordController extends AdminControllerBase
             )
         );
 
-        $page = $paginator->getPaginate();
-
         $paginator->setQuery($query);
         $pager = $paginator->getPaginate();
+        $this->view->setVar("pager", $pager);
+
 
         $data = array();
         $postSearcher = new PostSearcher();
 
         foreach($pager->items as $item) {
             $keyword = trim($item->keyword);
-            $pager = $postSearcher->searchPosts(
+            $page = $postSearcher->searchPosts(
                 array(
                     'q' => $keyword,
                     'status' => 'published',
@@ -69,7 +76,7 @@ class KeywordController extends AdminControllerBase
             );
 
             $_item = $item->toArray();
-            $totalItems = $pager->total_items;
+            $totalItems = $page->total_items;
             $_item['totalItems'] = $totalItems;
             $data[] = $_item;
         }
