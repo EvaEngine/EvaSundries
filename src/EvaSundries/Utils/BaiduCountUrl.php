@@ -9,28 +9,28 @@ namespace Eva\EvaSundries\Utils;
 
 class BaiduCountUrl {
 
-    var $cc = "1";      //不知道，一般为1
-    var $ck = "1";      //是否支持cookie 1:0
-    var $cl = "32-bit"; //颜色深度
-    var $ds = "1024x768";   //屏幕尺寸
-    var $et = "0";      //初始值为0,如果ep时间变量不是0的话，它会变成其他
-    var $ep = "0";      //初始值为0,时间变量，反映页面停留时间
-    var $fl = "11.0";   //flash版本
-    var $ja = "1";      //java支持版本
-    var $ln = "zh-CN";  //语言
-    var $lo = "0";      //不知道，一般为0
-    var $nv = "0";      //不知道，一般为1或0
-    var $sb = "17";     //浏览器，17代表360浏览器
-    var $st = "4";      //不知道，之前的请求为4
-    var $v  = "1.0.70";//百度统计的版本号
-    var $lv = "2";      //不知道，之前的请求为2
+    public $cc = "1";      //不知道，一般为1
+    public $ck = "1";      //是否支持cookie 1:0
+    public $cl = "32-bit"; //颜色深度
+    public $ds = "1024x768";   //屏幕尺寸
+    public $et = "0";      //初始值为0,如果ep时间变量不是0的话，它会变成其他
+    public $ep = "0";      //初始值为0,时间变量，反映页面停留时间
+    public $fl = "11.0";   //flash版本
+    public $ja = "1";      //java支持版本
+    public $ln = "zh-CN";  //语言
+    public $lo = "0";      //不知道，一般为0
+    public $nv = "0";      //不知道，一般为1或0
+    public $sb = "17";     //浏览器，17代表360浏览器
+    public $st = "4";      //不知道，之前的请求为4
+    public $v  = "1.0.70";//百度统计的版本号
+    public $lv = "2";      //不知道，之前的请求为2
 
-    var $lt;            // 当前时间，待补充
-    var $rnd;      //十位随机数，待补充
-    var $si;            //貌似是百度统计ID，待补充
-    var $u;             //待统计页面，待补充
+    public $lt;            // 当前时间，待补充
+    public $rnd;      //十位随机数，待补充
+    public $si;            //貌似是百度统计ID，待补充
+    public $u;             //待统计页面，待补充
 
-    var $url;           //请求url;
+    public $url;           //请求url;
 
 
     /**
