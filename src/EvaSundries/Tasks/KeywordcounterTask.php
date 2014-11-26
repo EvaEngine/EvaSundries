@@ -27,23 +27,25 @@ class KeywordcounterTask extends TaskBase
             $values = '';
             $count += count($items);
             $keywords = '';
+            $time = time();
             foreach ($items as $keyword => $heat) {
                 if ($keywords != '') {
                     $keywords .= ',';
                 }
                 $keywords .= "'".$keyword."'";
-                $insertValues .= "('{$keyword}', 1),";
+                $insertValues .= "('{$keyword}', 1, '$time'),";
                 $values .= " WHEN keyword='{$keyword}' THEN `count`+{$heat} ";
             }
             $insertValues = substr($insertValues, 0, strlen($insertValues)-1);
 
             $sql = <<<SQL
-INSERT {$tableName} (`keyword`, `count`) VALUES $insertValues
+INSERT {$tableName} (`keyword`, `count`, `latestTime`) VALUES $insertValues
 ON DUPLICATE KEY
 UPDATE `count` = CASE
   {$values}
   ELSE `count`
 END
+, `latestTime` = {$time}
 SQL;
             $keywordCount->getWriteConnection()->execute($sql);
         }

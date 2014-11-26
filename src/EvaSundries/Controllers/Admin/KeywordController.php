@@ -76,9 +76,11 @@ class KeywordController extends AdminControllerBase
             );
 
             $_item = $item->toArray();
+            $_item['latestTime'] = date('Y-m-d H:i:s', $_item['latestTime']);
             $totalItems = $page->total_items;
             $_item['totalItems'] = $totalItems;
             $data[] = $_item;
+
         }
 
         $this->view->setVar('data', $data);

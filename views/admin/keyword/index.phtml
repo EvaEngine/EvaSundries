@@ -71,12 +71,14 @@
                             <a href="<?=$this->tag->uri('/admin/keyword/index', $pager->query)?>" class="sortable-link" data-sortable-value="count">Count</a>
                         </th>
                         <th class="">该关键词搜到的页面条数</th>
+                        <th class=""><a href="<?=$this->tag->uri('/admin/keyword/index', $pager->query)?>" class="sortable-link" data-sortable-value="latestTime">最近一次搜索时间</a></th>
                     </thead>
                     <tbody>
                         <?foreach($data as $item):?>
                                 <td><?=$item['keyword'] ?></td>
                                 <td><?=$item['count']?></td>
                                 <td><?=$item['totalItems'] ?></td>
+                                <td><?=$item['latestTime'] ?></td>
                             </tr>
                         <?endforeach?>
                     </tbody>
