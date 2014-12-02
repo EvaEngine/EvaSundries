@@ -7,7 +7,7 @@
  */
 namespace Eva\EvaSundries\Utils;
 
-class BaiduCountUrl {
+class BaiduAnalysisUrl {
 
     public $cc = "1";      //不知道，一般为1
     public $ck = "1";      //是否支持cookie 1:0
@@ -44,7 +44,7 @@ class BaiduCountUrl {
 
     public function getFirstRequestUrl() {
         $this->lt = time();
-        $this->rnd = rand(1000000000, 9999999999);
+        $this->rnd = time();
         $this->url = "http://hm.baidu.com/hm.gif?cc=$this->cc&ck=$this->ck&cl=$this->cl&ds=$this->ds&ep=25717%2C21700&et=$this->et&fl=$this->fl&ja=$this->ja&ln=$this->ln&lo=$this->lo&lt=$this->lt&nv=$this->nv&rnd=$this->rnd&si=$this->si&st=$this->st&v=$this->v&lv=$this->lv&u=$this->u";
 
         return $this->url;
@@ -52,7 +52,7 @@ class BaiduCountUrl {
 
     public function getSecondRequestUrl() {
         $this->lt = time();
-        $this->rnd = rand(1000000000, 9999999999);
+        $this->rnd = time();
         $this->url = "http://hm.baidu.com/hm.gif?cc=$this->cc&ck=$this->ck&cl=$this->cl&ds=$this->ds&et=$this->et&fl=$this->fl&ja=$this->ja&ln=$this->ln&lo=$this->lo&lt=$this->lt&nv=$this->nv&rnd=$this->rnd&si=$this->si&st=$this->st&v=$this->v&lv=$this->lv";
 
         return $this->url;
