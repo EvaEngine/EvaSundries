@@ -12,7 +12,7 @@ class BaiduAnalysisUrl {
     public $cc = "1";      //不知道，一般为1
     public $ck = "1";      //是否支持cookie 1:0
     public $cl = "32-bit"; //颜色深度
-    public $ds = "1024x768";   //屏幕尺寸
+    public $ds = "";   //屏幕尺寸
     public $et = "0";      //初始值为0,如果ep时间变量不是0的话，它会变成其他
     public $ep = "0";      //初始值为0,时间变量，反映页面停留时间
     public $fl = "11.0";   //flash版本
