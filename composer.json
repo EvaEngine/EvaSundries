@@ -1,0 +1,25 @@
+{
+    "name": "allovince/evasundries",
+    "description": "Sundries Module of EvaEngine",
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "AlloVince",
+            "email": "allo.vince@gmail.com",
+            "homepage": "http://avnpc.com"
+        },
+        {
+            "name": "Mr.5",
+            "email": "mr5.simple@gmail.com",
+            "homepage": "http://mr-5.cn"
+        }
+    ],
+    "require": {
+        "allovince/evaengine": "dev-master"
+    },
+    "autoload": {
+        "classmap": ["Module.php"],
+        "psr-4": {"Eva\\EvaSundries\\": "src/EvaSundries"}
+    }
+}
