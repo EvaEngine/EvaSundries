@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "allovince/evaengine": "dev-master"
+        "evaengine/evaengine": "dev-master"
     },
     "autoload": {
         "classmap": ["Module.php"],
