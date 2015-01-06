@@ -40,20 +40,18 @@ class BaiduAnalysisUrl {
     public function __construct($BaiduId, $page_url) {
         $this->si = $BaiduId;
         $this->u  = $page_url;
-        $this->lt = $this->rnd = time();
+        $this->lt = time();
     }
 
     public function getFirstRequestUrl() {
-//        $this->lt = time();
-//        $this->rnd = time();
+        $this->rnd =  mt_rand(1000000000, 9999999999);
         $this->url = "http://hm.baidu.com/hm.gif?cc=$this->cc&ck=$this->ck&cl=$this->cl&ds=$this->ds&ep=25717%2C21700&et=$this->et&fl=$this->fl&ja=$this->ja&ln=$this->ln&lo=$this->lo&lt=$this->lt&nv=$this->nv&rnd=$this->rnd&si=$this->si&st=$this->st&v=$this->v&lv=$this->lv&u=$this->u";
 
         return $this->url;
     }
 
     public function getSecondRequestUrl() {
-//        $this->lt = time();
-//        $this->rnd = time();
+        $this->rnd =  mt_rand(1000000000, 9999999999);
         $this->url = "http://hm.baidu.com/hm.gif?cc=$this->cc&ck=$this->ck&cl=$this->cl&ds=$this->ds&et=$this->et&fl=$this->fl&ja=$this->ja&ln=$this->ln&lo=$this->lo&lt=$this->lt&nv=$this->nv&rnd=$this->rnd&si=$this->si&st=$this->st&v=$this->v&lv=$this->lv";
 
         return $this->url;
