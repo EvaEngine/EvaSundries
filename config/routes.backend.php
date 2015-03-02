@@ -19,10 +19,20 @@ return array(
         'action' => 'edit',
         'id' => 1
     ),
-
     '/admin/keyword/:action' => array(
         'module' => 'EvaSundries',
         'controller' => 'Admin\Keyword',
         'action' => 1
-    )
+    ),
+    '/admin/option/:action' => array(
+        'module' => 'EvaSundries',
+        'controller' => 'Admin\Option',
+        'action' => 1,
+    ),
+    '/admin/option/edit/(\d+)' => array(
+        'module' => 'EvaSundries',
+        'controller' => 'Admin\Option',
+        'action' => 'edit',
+        'id' => 1,
+    ),
 );
