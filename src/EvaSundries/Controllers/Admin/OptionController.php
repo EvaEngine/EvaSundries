@@ -13,6 +13,10 @@ use Eva\EvaSundries\Entities\Options;
 use Eva\EvaSundries\Forms\OptionForm;
 use Eva\EvaEngine\Exception;
 
+/**
+ * @resourceName("网站配置文件")
+ * @resourceDescription("网站配置文件")
+ */
 class OptionController extends AdminControllerBase {
     /**
      * @operationName("配置选项列表")
