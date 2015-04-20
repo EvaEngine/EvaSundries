@@ -1,0 +1,51 @@
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="/admin/dashboard">Home</a>
+        </li>
+
+        <li>
+            <a href="/admin/cdn" class="active">update CDN</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+
+    <div class="nav-search" id="nav-search">
+        <form class="form-search">
+            <span class="input-icon">
+                <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                <i class="icon-search nav-search-icon"></i>
+            </span>
+        </form>
+    </div><!-- #nav-search -->
+</div>
+
+<div class="page-content">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h3 class="header smaller lighter blue">
+                update CDN
+            </h3>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <form class="form-inline" action="/admin/cdn/update" method="post">
+                        <div class="form-group">
+                            <input type="text" name="url" class="form-control input-lg" placeholder="url" ><span class="help-block" style="margin:0;" id="parsley-id-4320"></span>
+                        </div>
+                        <button class="btn btn-info btn-sm form-control" type="submit">
+                            <i class="icon-search bigger-110"></i>
+                            更新
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div><!-- /col-->
+    </div><!--row end-->
+
+</div><!-- /.page-content -->

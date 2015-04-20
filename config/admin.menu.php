@@ -24,10 +24,16 @@
                 Keyword Count
             </a>
         </li>
-        <li class="tobe-highlight" data-highlight-url="/admin/keyword">
+        <li class="tobe-highlight" data-highlight-url="/admin/option/index">
             <a href="/admin/option/index">
                 <i class="icon-double-angle-right"></i>
                 配置列表
+            </a>
+        </li>
+        <li class="tobe-highlight" data-highlight-url="/admin/cdn">
+            <a href="/admin/cdn">
+                <i class="icon-double-angle-right"></i>
+                更新CDN
             </a>
         </li>
     </ul>

@@ -35,4 +35,14 @@ return array(
         'action' => 'edit',
         'id' => 1,
     ),
+    '/admin/cdn' => array(
+        'module' => 'EvaSundries',
+        'controller' => 'Admin\CDN',
+        'action' => 'index',
+    ),
+    '/admin/cdn/update' => array(
+        'module' => 'EvaSundries',
+        'controller' => 'Admin\CDN',
+        'action' => 'update',
+    ),
 );
