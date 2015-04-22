@@ -15,7 +15,7 @@ use Eva\EvaSundries\Utils\CDN;
  * @resourceName("更新CDN文件")
  * @resourceDescription("更新CDN文件")
  */
-class CDNController extends AdminControllerBase {
+class CdnController extends AdminControllerBase {
     /**
      * @operationName("展示页面")
      * @operationDescription("展示页面")

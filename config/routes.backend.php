@@ -37,12 +37,12 @@ return array(
     ),
     '/admin/cdn' => array(
         'module' => 'EvaSundries',
-        'controller' => 'Admin\CDN',
+        'controller' => 'Admin\Cdn',
         'action' => 'index',
     ),
     '/admin/cdn/update' => array(
         'module' => 'EvaSundries',
-        'controller' => 'Admin\CDN',
+        'controller' => 'Admin\Cdn',
         'action' => 'update',
     ),
 );
