@@ -7,34 +7,82 @@
  */
 namespace Eva\EvaSundries\Utils;
 
-class CDN {
+use Eva\EvaEngine\IoC;
 
+class CDN
+{
     public static function update($url)
     {
+        $publicKey = IoC::get('config')->EvaSundries->ucloud->publicKey;
+        $privateKey = Ioc::get('config')->EvaSundries->ucloud->privateKey;
+
         $ch = curl_init();
 
-        $url = 'api.ucloud.cn/?Action=DescribeUcdnDomain&PublicKey=ucloudmr5.simple@gmail.com1386555530796251119&Signature=968b9b2b42f13b012391936c20fd02879ee3fb01';
+        $domain = self::getDomain($url);
+
+        $domainMap = array(
+            'markets.s.wallstcn.com'            => 'ucdn-uwvxf',
+            'uploads.cdn.wallstreetcn.com'      => 'ucdn-0cykc',
+            'activity.wallstreetcn.com'         => 'ucdn-i0nhgn',
+            'img.cdn.wallstreetcn.com'          => 'ucdn-kio11i',
+            'wscn.cdn.wallstreetcn.com'         => 'ucdn-5s5t1j',
+            'markets.static.wallstreetcn.com'   => 'ucdn-albnfl',
+        );
+
+        $params = array(
+            'Action' => 'RefreshUcdnDomainCache',
+            'PublicKey' => $publicKey,
+            'DomainId' => $domainMap[$domain],
+            'Type' => 'file',
+            'UrlList.0' => $url,
+        );
+
+        $signature = self::_verfy_ac($privateKey, $params);
+
+        $url = self::createUrl($params, $signature);
 
         curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
         $result = curl_exec($ch);
         curl_close($ch);
-dd($result);
-        return null;
+
+        return json_decode($result);
     }
 
-    private function _verfy_ac($private_key, $params) {
+    private static function createUrl($params, $signature)
+    {
+        $url = "api.ucloud.cn/?";
+        foreach ($params as $key => $value) {
+            $param = "&$key=$value";
+            $url .= $param;
+        }
+        $url .= "&Signature=$signature";
+
+        return $url;
+    }
+
+    private static function getDomain($url)
+    {
+        $pattern = "/([\w-]+\.)*(com|net|org|gov|cc|biz|info|cn)(\.(cn|hk))*/";
+        preg_match($pattern, $url, $matches);
+        if(count($matches) > 0) {
+            return $matches[0];
+        }
+    }
+
+    private static function _verfy_ac($privateKey, $params)
+    {
         ksort($params);
         # 参数串排序
         $params_data = "";
 
-        foreach($parans as $key => $value) {
+        foreach($params as $key => $value) {
             $params_data .= $key;
             $params_data .= $value;
         }
 
-        $params_data .= $private_key;
+        $params_data .= $privateKey;
         return sha1($params_data);
         # 生成的Signature值
     }
-
 }
