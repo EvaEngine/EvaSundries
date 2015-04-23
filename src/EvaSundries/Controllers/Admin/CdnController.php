@@ -29,11 +29,11 @@ class CdnController extends AdminControllerBase {
      * @operationDescription("更新")
      */
     public function updateAction() {
-        $url = $this->request->getPost('url');
+        $urls = $this->request->getPost('urls');
 
-        $result = CDN::update($url);
+        CDN::update($urls);
 
-        return $this->showResponseAsJson($result);
+        return $this->showResponseAsJson(['success']);
     }
 
 } 
