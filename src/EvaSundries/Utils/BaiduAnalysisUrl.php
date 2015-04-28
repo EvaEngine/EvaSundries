@@ -34,12 +34,12 @@ class BaiduAnalysisUrl {
 
 
     /**
-     * @param $BaiduId  申请百度统计时的百度ID
-     * @param $page_url 待统计页面的url
+     * @param $baiduId  申请百度统计时的百度ID
+     * @param $pageUrl 待统计页面的url
      */
-    public function __construct($BaiduId, $page_url) {
-        $this->si = $BaiduId;
-        $this->u  = $page_url;
+    public function __construct($baiduId, $pageUrl) {
+        $this->si = $baiduId;
+        $this->u  = $pageUrl;
         $this->lt = time();
     }
 
