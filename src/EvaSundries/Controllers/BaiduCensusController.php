@@ -25,6 +25,20 @@ class BaiduCensusController extends \Phalcon\Mvc\Controller
         $firstUrl = $baiduAnalysisUtil->getFirstRequestUrl();
         $secondUrl = $baiduAnalysisUtil->getSecondRequestUrl();
 
-        dd($firstUrl);
+        self::request($firstUrl);
+        self::request($secondUrl);
+    }
+
+    private static function request($url)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+
+        curl_exec($ch);
+
+        curl_close($ch);
     }
 }
