@@ -27,6 +27,8 @@ class BaiduCensusController extends \Phalcon\Mvc\Controller
 
         self::request($firstUrl);
         self::request($secondUrl);
+
+        return $this->response->setJsonContent('done');
     }
 
     private static function request($url)
