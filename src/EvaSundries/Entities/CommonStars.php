@@ -68,7 +68,7 @@ class CommonStars extends Model
     public function getImageUrl()
     {
         if ($this->type == 'post') {
-            $this->getImageUrlByUri($this->image);
+            return  $this->getImageUrlByUri($this->image);
         } elseif ($this->type == 'subscription') {
             return $this->image;
         }
