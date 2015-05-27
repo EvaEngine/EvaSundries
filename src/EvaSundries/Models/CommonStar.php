@@ -18,8 +18,7 @@ class CommonStar extends CommonStars
         'postId',
         'title',
         'summary',
-//        'getImageUrl' => 'image',
-        'image' => 'getImageUrl',
+        'imageUrl' => 'getImageUrl',
         'sourceUrl',
         'createdAt',
     );
