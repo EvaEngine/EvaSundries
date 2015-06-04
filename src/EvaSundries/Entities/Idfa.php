@@ -14,9 +14,15 @@ class Idfa extends \Eva\EvaEngine\Mvc\Model
 
     /**
      *
-     * @var integer
+     * @var string
      */
     public $idfa;
+
+    /**
+     *
+     * @var string
+     */
+    public $appId;
 
     /**
      *
