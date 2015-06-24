@@ -9,6 +9,7 @@
 namespace Eva\EvaSundries\Models;
 
 use Eva\EvaSundries\Entities\CommonStars;
+use Eva\EvaUser\Models\Login;
 
 class CommonStar extends CommonStars
 {
@@ -46,4 +47,23 @@ class CommonStar extends CommonStars
         return $itemQuery;
     }
 
-} 
+    /**
+     * @param $type
+     * @param $postId
+     * @return bool
+     */
+    public static function getStarStatus($type, $postId)
+    {
+        $currentUser = Login::getCurrentUser();
+        $userId = $currentUser['id'];
+
+        if ($userId == 0) {
+            return false;
+        }
+
+        $conditions = " userId = $userId AND type = '$type' AND postId = $postId ";
+        $star = CommonStars::findFirst($conditions);
+
+        return empty($star) ? false : true;
+    }
+}

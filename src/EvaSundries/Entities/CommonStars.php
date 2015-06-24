@@ -60,7 +60,7 @@ class CommonStars extends Model
      */
     public $createdAt;
 
-    public function beforeCreate()
+    public function onConstruct()
     {
         $this->createdAt = $this->createdAt ?: time();
     }
