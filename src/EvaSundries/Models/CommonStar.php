@@ -24,6 +24,13 @@ class CommonStar extends CommonStars
         'createdAt',
     );
 
+    public static $postDump = array(
+        'id',
+        'userId',
+        'postId',
+        'createdAt',
+    );
+
     public function getStarsBuilder($params)
     {
         $itemQuery = $this->getModelsManager()->createBuilder();
