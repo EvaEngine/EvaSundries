@@ -10,6 +10,7 @@ namespace Eva\EvaSundries\Entities;
 
 
 use Eva\EvaEngine\Mvc\Model;
+use Eva\EvaFileSystem\ViewHelpers\ThumbWithClass;
 
 class CommonStars extends Model
 {
@@ -79,7 +80,8 @@ class CommonStars extends Model
         if (!$uri) {
             return null;
         }
-        $tag = $this->getDI()->getTag();
-        return $tag::thumb($uri);
+        $thumbWithClass = new ThumbWithClass();
+
+        return $thumbWithClass->__invoke($uri, $style);
     }
 }
