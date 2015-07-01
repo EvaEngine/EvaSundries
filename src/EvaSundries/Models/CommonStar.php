@@ -81,9 +81,9 @@ class CommonStar extends CommonStars
         } else {
             $conditions = " userId = $userId AND type = '$type' AND postId = $postId ";
             $star = CommonStars::findFirst($conditions);
+            $this->getCache()->save($cacheKey, $star, $this->cacheTime);
         }
 
-        $this->getCache()->save($cacheKey, $star, $this->cacheTime);
         return empty($star) ? false : true;
     }
 }
