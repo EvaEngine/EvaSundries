@@ -61,6 +61,8 @@ class CommonStars extends Model
      */
     public $createdAt;
 
+    public $cacheTime = 86400;  //一天
+
     public function onConstruct()
     {
         $this->createdAt = $this->createdAt ?: time();
@@ -84,4 +86,58 @@ class CommonStars extends Model
 
         return $thumbWithClass->__invoke($uri, $style);
     }
+
+    public function getCache()
+    {
+        /** @var \Phalcon\Cache\Backend\Libmemcached $cache */
+        $cache =  $this->getDI()->get('modelsCache');
+        return $cache;
+    }
+
+    public function createCacheKey($params){
+        ksort($params);
+        $str = $this->cachePrefix;
+        foreach($params as $k=>$v){
+            $str .= $k.'_'.$v.'_';
+        }
+
+        return $str;
+    }
+
+    public function refreshCache($params)
+    {
+        $cacheKey = $this->createCacheKey($params);
+        if($this->getCache()->exists($cacheKey)){
+            $this->getCache()->delete($cacheKey);
+        }
+    }
+
+    public function afterSave()
+    {
+        $this->refreshCache(array(
+            'type'=> 'post',
+            'userId'=>$this->userId,
+            'postId'=>$this->postId
+        ));
+        $this->refreshCache(array(
+            'type'=> 'subscription',
+            'userId'=>$this->userId,
+            'postId'=>$this->postId
+        ));
+    }
+
+    public function afterDelete()
+    {
+        $this->refreshCache(array(
+            'type'=> 'post',
+            'userId'=>$this->userId,
+            'postId'=>$this->postId
+        ));
+        $this->refreshCache(array(
+            'type'=> 'subscription',
+            'userId'=>$this->userId,
+            'postId'=>$this->postId
+        ));
+    }
+
 }

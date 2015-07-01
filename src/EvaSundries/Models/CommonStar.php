@@ -59,18 +59,31 @@ class CommonStar extends CommonStars
      * @param $postId
      * @return bool
      */
-    public static function getStarStatus($type, $postId)
+    public function getStarStatus($type, $postId)
     {
         $currentUser = Login::getCurrentUser();
         $userId = $currentUser['id'];
 
-        if ($userId == 0) {
+        if ($userId == 0) { //未登录
             return false;
         }
 
-        $conditions = " userId = $userId AND type = '$type' AND postId = $postId ";
-        $star = CommonStars::findFirst($conditions);
+        $params = array(
+            'userId' => $userId,
+            'type' => $type,
+            'postId' => $postId
+        );
 
+        $cacheKey = $this->createCacheKey($params);
+
+        if ($this->getCache()->exists($cacheKey)){
+            $star = $this->getCache()->get($cacheKey);
+        } else {
+            $conditions = " userId = $userId AND type = '$type' AND postId = $postId ";
+            $star = CommonStars::findFirst($conditions);
+        }
+
+        $this->getCache()->save($cacheKey, $star, $this->cacheTime);
         return empty($star) ? false : true;
     }
 }
