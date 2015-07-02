@@ -84,6 +84,6 @@ class CommonStar extends CommonStars
             $this->getCache()->save($cacheKey, $star, $this->cacheTime);
         }
 
-        return empty($star) ? false : true;
+        return $star;
     }
 }
