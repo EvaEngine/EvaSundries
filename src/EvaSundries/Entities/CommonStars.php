@@ -68,7 +68,7 @@ class CommonStars extends Model
         $this->createdAt = $this->createdAt ?: time();
     }
 
-    public function getImageUrl()
+    public function getImageUrl($style = '')
     {
         if ($this->type == 'post') {
             return  $this->getImageUrlByUri($this->image);
@@ -77,7 +77,7 @@ class CommonStars extends Model
         }
     }
 
-    public function getImageUrlByUri($uri)
+    public function getImageUrlByUri($uri, $style = '')
     {
         if (!$uri) {
             return null;
