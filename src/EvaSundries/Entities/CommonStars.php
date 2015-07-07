@@ -63,6 +63,8 @@ class CommonStars extends Model
 
     public $cacheTime = 86400;  //一天
 
+    public $cachePrefix = 'wscn_common_star_';
+
     public function onConstruct()
     {
         $this->createdAt = $this->createdAt ?: time();
