@@ -36,15 +36,15 @@ class CommonStar extends CommonStars
         $itemQuery = $this->getModelsManager()->createBuilder();
         $itemQuery->from(__CLASS__);
 
-        if ($params['userId']) {
+        if (!empty($params['userId'])) {
             $itemQuery->andWhere('userId = :userId:', array('userId' => $params['userId']));
         }
 
-        if ($params['postId']) {
+        if (!empty($params['postId'])) {
             $itemQuery->andWhere('postId = :postId:', array('postId' => $params['postId']));
         }
 
-        if ($params['type']) {
+        if (!empty($params['type'])) {
             $itemQuery->andWhere('type = :type:', array('type' => $params['type']));
         }
 
