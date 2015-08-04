@@ -8,6 +8,9 @@ class Advertisement extends Advertisements
 {
     public function injectSendNiaoge($idfa, $appId = '738227477')
     {
+        $idfa = json_decode($idfa, true);
+        $idfa = $idfa['idfa'];
+
         $cache = $this->getCache();
         $cacheKey = $this->createCacheKey(array('source' => 'niaoge', 'idfa' => $idfa, 'appId' => $appId));
 
