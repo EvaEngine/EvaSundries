@@ -26,6 +26,8 @@ class UserAuditLog extends UserAuditLogs
 
         $itemQuery->from(__CLASS__);
 
+        $itemQuery->orderBy('createdAt DESC');
+
         return $itemQuery;
     }
 }
