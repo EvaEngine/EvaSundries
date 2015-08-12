@@ -12,13 +12,13 @@
                 Page Blocks
             </a>
         </li>
-        <li class="tobe-highlight" data-highlight-url="/admin/audit">
-            <a href="/admin/audit">
+        <li class="tobe-highlight" data-highlight-url="/admin/useraudit">
+            <a href="/admin/useraudit">
                 <i class="icon-double-angle-right"></i>
-                Operations Audit
+                User Operations Audit
             </a>
         </li>
-        <li class="tobe-highlight" data-highlight-url="/admin/keyword">
+        <li class="tobe-highlight" data-highlight-url="/admin/keyword/index">
             <a href="/admin/keyword/index">
                 <i class="icon-double-angle-right"></i>
                 Keyword Count

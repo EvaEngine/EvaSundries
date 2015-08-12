@@ -19,6 +19,11 @@ return array(
         'action' => 'edit',
         'id' => 1
     ),
+    '/admin/useraudit' => array(
+        'module' => 'EvaSundries',
+        'controller' => 'Admin\UserAudit',
+        'action' => 'index',
+    ),
     '/admin/keyword/:action' => array(
         'module' => 'EvaSundries',
         'controller' => 'Admin\Keyword',
