@@ -19,7 +19,7 @@ class UserAuditController extends AdminControllerBase
             'page' => $this->request->getQuery('page', 'int', 1),
         );
 
-        $form = new Forms\AuditlogForm();
+        $form = new Forms\AuditLogForm();
         $form->setValues($this->request->getQuery());
         $this->view->setVar('form', $form);
 
