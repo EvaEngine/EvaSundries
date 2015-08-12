@@ -30,6 +30,9 @@ class Module implements ModuleDefinitionInterface, StandardInterface
 
     static public function registerGlobalEventListeners()
     {
+        return array(
+            'audit' => 'Eva\EvaSundries\Events\AuditListener',
+        );
     }
 
     public static function registerGlobalAutoloaders()
